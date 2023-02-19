@@ -3,15 +3,16 @@ import {CommonModule} from "@angular/common";
 import {RouterModule} from "@angular/router";
 import {BookListComponent} from "./core/book-list/book-list.component";
 import {BookService} from "./core/service/book.service";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 import {NavbarComponent} from "./core/navbar/navbar.component";
 import {SidebarComponent} from "./core/sidebar/sidebar.component";
+import {HeaderComponent} from "./core/header/header.component";
 
 @Component({
   selector: 'app-root',
   imports:[
     AppComponent, CommonModule, RouterModule, HttpClientModule, BookListComponent,
-    NavbarComponent, SidebarComponent
+    NavbarComponent, SidebarComponent, HeaderComponent
   ],
   providers: [BookService],
   templateUrl: './app.component.html',
