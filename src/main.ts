@@ -10,6 +10,11 @@ const routes = [
     path:'',
     loadComponent: () => import('./app/core/book-list/book-list.component')
       .then(c => c.BookListComponent)
+  },
+  {
+    path: 'book/:id',
+    loadComponent: () => import('./app/core/book-details/book-details.component')
+      .then(c => c.BookDetailsComponent)
   }
 ]
 
