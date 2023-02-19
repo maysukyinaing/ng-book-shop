@@ -7,12 +7,13 @@ import {HttpClientModule} from "@angular/common/http";
 import {NavbarComponent} from "./core/navbar/navbar.component";
 import {SidebarComponent} from "./core/sidebar/sidebar.component";
 import {HeaderComponent} from "./core/header/header.component";
+import {BookDetailsComponent} from "./core/book-details/book-details.component";
 
 @Component({
   selector: 'app-root',
   imports:[
     AppComponent, CommonModule, RouterModule, HttpClientModule, BookListComponent,
-    NavbarComponent, SidebarComponent, HeaderComponent
+    NavbarComponent, SidebarComponent, HeaderComponent, BookDetailsComponent
   ],
   providers: [BookService],
   templateUrl: './app.component.html',
