@@ -5,6 +5,7 @@ import {importProvidersFrom} from "@angular/core";
 import {RouterModule} from "@angular/router";
 
 const routes = [
+
   {
     path:'',
     loadComponent: () => import('./app/core/book-list/book-list.component')
