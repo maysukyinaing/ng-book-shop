@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, catchError, shareReplay, tap, throwError} from "rxjs";
+import {BehaviorSubject, catchError, map, Observable, shareReplay, tap, throwError} from "rxjs";
 import {Book} from "../model/book";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 
@@ -25,4 +25,12 @@ export class BookService {
                  tap(book => this.bookSubject.next(book))
                ).subscribe();
   }
+
+  private findBookById(id:number):Observable<Book> {
+      return this.books$
+                  .pipe(
+                    map(books => books.find(book => book.id === id))
+                  )as Observable<Book>
+  }
+
 }
