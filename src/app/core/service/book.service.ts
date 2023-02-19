@@ -26,7 +26,7 @@ export class BookService {
                ).subscribe();
   }
 
-  private findBookById(id:number):Observable<Book> {
+  findBookById(id:number):Observable<Book> {
       return this.books$
                   .pipe(
                     map(books => books.find(book => book.id === id))

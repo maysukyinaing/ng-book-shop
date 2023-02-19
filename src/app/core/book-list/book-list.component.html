@@ -9,7 +9,7 @@
           <p class="card-text">Author :: {{item?.author}}</p>
           <p class="card-text">Price :: {{item?.price}}</p>
           <p class="card-text">Published :: {{item?.publishedDate}}</p>
-          <a href="#" class="btn btn-primary w-100">Learn Something</a>
+          <a href="#" class="btn btn-primary w-100" [routerLink]="['/book/',item.id]" >Learn Something</a>
         </div>
       </div>
     </div>
