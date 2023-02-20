@@ -2,16 +2,17 @@
 
 <app-navbar></app-navbar>
 <app-header></app-header>
-<div>
-  <app-cart></app-cart>
-</div>
-<div class="row">
-  <div class="col-md-5">
-    <app-sidebar></app-sidebar>
+<div class="container">
+  <div>
+    <app-cart></app-cart>
   </div>
-  <div class="col-md-7">
-    <router-outlet></router-outlet>
+  <div class="row">
+    <div class="col-md-5">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-md-7">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
-
 
