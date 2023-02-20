@@ -25,7 +25,12 @@ const routes = [
     path: 'book-create',
     loadComponent: () => import('./app/admin/book-create/book-create.component')
       .then(c => c.BookCreateComponent)
-  }
+  },
+  {
+    path: 'list-book',
+    loadComponent:() => import('./app/admin/all-books/all-books.component')
+      .then(c => c.AllBooksComponent)
+  },
 ]
 
 bootstrapApplication(AppComponent,

@@ -11,13 +11,14 @@ import {BookDetailsComponent} from "./core/book-details/book-details.component";
 import {CartComponent} from "./core/cart/cart.component";
 import {CartViewComponent} from "./core/cart-view/cart-view.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FooterComponent} from "./core/footer/footer.component";
 
 @Component({
   selector: 'app-root',
   imports:[
     AppComponent, CommonModule, RouterModule, HttpClientModule, BookListComponent,
     NavbarComponent, SidebarComponent, HeaderComponent, BookDetailsComponent,
-    CartComponent, CartViewComponent, FormsModule, ReactiveFormsModule
+    CartComponent, CartViewComponent, FormsModule, ReactiveFormsModule, FooterComponent
   ],
   providers: [BookService],
   templateUrl: './app.component.html',
