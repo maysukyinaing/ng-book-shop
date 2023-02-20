@@ -44,4 +44,16 @@ export class BookService {
       )
   }
 
+  updateBook(book:Book):Observable<Book> {
+    const header = new HttpHeaders().set('Content-Type','application/json')
+    return this.http
+      .put<Book>(`http://localhost:8080/api/book/update/${book.id}`, book, {headers:header})
+      .pipe(
+        shareReplay(),
+        catchError(err => {
+          return throwError(err)
+        }),
+        tap(() => this.loadAllBooks())
+      )
+  }
 }

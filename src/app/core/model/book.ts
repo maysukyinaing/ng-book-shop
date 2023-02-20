@@ -19,4 +19,5 @@ export class Book {
     this.comments = comments;
     this.publishedDate = publishedDate
   }
+
 }
