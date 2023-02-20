@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, from, Observable, of, retry, tap} from "rxjs";
+import {BehaviorSubject, from, map, Observable, of, tap} from "rxjs";
 import {Book} from "../model/book";
 
 @Injectable({
@@ -53,5 +53,14 @@ export class CartService {
       return books.splice(index, 1)
     }
     return []
+  }
+
+  clearCart():Observable<any> {
+    return from(this.booksCart)
+      .pipe(
+        map(book => this.booksCart.length = 0),  //if length was 0 in js , all value was deleted instant
+        tap(() => this.cartSubject.next(this.booksCart)),
+        tap(() => this.cartSizeSubject.next(this.booksCart.length))
+      )
   }
 }
