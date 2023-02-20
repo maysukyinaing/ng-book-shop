@@ -1,1 +1,55 @@
-<p>book-create works!</p>
+
+
+<div class="container">
+  <form [formGroup]="bookForm" class="bg-light p-5">
+
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" id="title" class="form-control" formControlName="title" >
+    </div>
+
+    <div class="mb-3">
+      <label for="author" class="form-label">Author</label>
+      <input type="text" id="author" class="form-control"
+             [ngClass]="bookForm.controls?.['author']?.touched && bookForm.controls?.['author']?.errors?.['required'] ? 'is-invalid' : '' "
+             formControlName="author">
+      <small *ngIf="bookForm.controls?.['author']?.touched && bookForm.controls?.['author']?.errors?.['required']"
+             class="text text-danger">Author Name is required!</small>
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input type="number" id="price" class="form-control" formControlName="price">
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input type="text" id="description" class="form-control" formControlName="description">
+    </div>
+
+    <div class="mb-3">
+      <label for="imgUrl" class="form-label">Image URL</label>
+      <input type="text" id="imgUrl" class="form-control" formControlName="imageUrl">
+    </div>
+
+    <div class="mb-3">
+      <label for="comments" class="form-label">Comments</label>
+      <input type="text" id="comments" class="form-control" formControlName="comments" >
+    </div>
+
+    <div class="mb-3">
+      <label for="publishedDate" class="form-label">Published Date</label>
+      <input type="date" id="publishedDate" class="form-control" formControlName="publishedDate">
+    </div>
+
+    <button class="btn btn-outline-info w-100">Create Book</button>
+
+  </form>
+</div>
+
+<div>
+  {{bookForm.valid}}
+</div>
+<div>
+  {{bookForm.value | json}}
+</div>

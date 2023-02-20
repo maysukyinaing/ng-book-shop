@@ -20,6 +20,11 @@ const routes = [
     path: 'cartview',
     loadComponent: () => import('./app/core/cart-view/cart-view.component')
       .then(c => c.CartViewComponent)
+  },
+  {
+    path: 'book-create',
+    loadComponent: () => import('./app/admin/book-create/book-create.component')
+      .then(c => c.BookCreateComponent)
   }
 ]
 
