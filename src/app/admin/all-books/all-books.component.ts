@@ -22,6 +22,11 @@ export class AllBooksComponent implements OnInit{
   ngOnInit(): void {
   }
 
+  deleteBook(id:number | undefined) {
+    console.log(id)
+  }
+
+
 
 
 

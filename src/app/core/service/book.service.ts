@@ -56,4 +56,18 @@ export class BookService {
         tap(() => this.loadAllBooks())
       )
   }
+
+  deleteBook(id:number):Observable<any> {
+    return this.http
+      .delete<any>(`http://localhost:8080/api/book/delete/${id}`)
+      .pipe(
+        catchError(err => {
+          return throwError(err)
+        }),
+        tap(
+          () => this.loadAllBooks()
+        )
+
+      )
+  }
 }
