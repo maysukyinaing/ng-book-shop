@@ -10,18 +10,17 @@
         <th>Author</th>
         <th>Price</th>
         <th>Published Dte</th>
+        <th>Action</th>
        </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of books$ | async">
-        <th>{{item.id}}</th>
-        <th>{{item.title}}</th>
-        <th>{{item.author}}</th>
-        <th>{{item.price}} &nbsp; $</th>
-        <th>{{item.publishedDate | date}}</th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <td>{{item.id}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.author}}</td>
+        <td>{{item.price}}$</td>
+        <td>{{item.publishedDate | date}}</td>
+        <td><a class="btn btn btn-outline-success" [routerLink]="['/book/update/',item.id]" >Update</a></td>
       </tr>
     </tbody>
 

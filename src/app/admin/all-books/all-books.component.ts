@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import {BookService} from "../../core/service/book.service";
 import {Observable} from "rxjs";
 import {Book} from "../../core/model/book";
+import {RouterModule} from "@angular/router";
 
 @Component({
   selector: 'app-all-books',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './all-books.component.html',
   styleUrls: ['./all-books.component.scss']
 })

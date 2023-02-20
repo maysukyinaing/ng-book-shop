@@ -28,9 +28,14 @@ const routes = [
   },
   {
     path: 'list-book',
-    loadComponent:() => import('./app/admin/all-books/all-books.component')
+    loadComponent: () => import('./app/admin/all-books/all-books.component')
       .then(c => c.AllBooksComponent)
   },
+  {
+    path: 'book/update/:id',
+    loadComponent: () => import('./app/admin/book-update/book-update.component')
+      .then(c => c.BookUpdateComponent)
+  }
 ]
 
 bootstrapApplication(AppComponent,
