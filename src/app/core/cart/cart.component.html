@@ -1,5 +1,5 @@
 
 <div class="d-flex justify-content-end my-3 p-3">
-  <span><i class="fas fa-shopping-cart fa-2x"></i></span>
-
+  <a [routerLink]="['cartview']"><span><i class="fas fa-shopping-cart fa-2x"></i></span></a> &nbsp; &nbsp;
+  <span class="badge bg-info">{{cartSize$ | async }}</span>
 </div>
