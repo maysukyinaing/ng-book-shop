@@ -13,6 +13,7 @@
         <th>Description</th>
         <th>Published Date</th>
         <th>Comments</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody *ngFor="let item of (carts$ | async)">
@@ -21,8 +22,14 @@
       <td>{{item?.author}}</td>
       <td>{{item?.price}}</td>
       <td>{{item?.description}}</td>
-      <td>{{item?.publishedDate}}</td>
+      <td>{{item?.publishedDate | date}}</td>
       <td>{{item?.comments}}</td>
+      <td><button class="btn btn-outline-danger" (click)="removeFromCart(item?.id)">Delete</button></td>
     </tbody>
   </table>
+
+  <div class="mt-4" *ngIf="(carts$ | async)?.length != 0">
+    <button class="btn btn-outline-danger me-3" (click)="clearCart()">Clear Cart</button>
+    <button class="btn btn-outline-info me-3" (click)="goHome()">Home</button>
+  </div>
 </div>

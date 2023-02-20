@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {BehaviorSubject, Observable, of, tap} from "rxjs";
-import {Book} from "../model/book";
+import {Observable} from "rxjs";
 import {CartService} from "../service/cart.service";
 import {RouterModule} from "@angular/router";
 

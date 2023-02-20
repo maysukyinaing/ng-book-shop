@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {Observable} from "rxjs";
 import {Book} from "../model/book";
 import {CartService} from "../service/cart.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-cart-view',
@@ -14,11 +15,32 @@ import {CartService} from "../service/cart.service";
 export class CartViewComponent implements OnInit{
   carts$:Observable<Book[]> = this.cartService.carts$
 
-  constructor(private cartService:CartService) {
+  constructor(private cartService:CartService, private router:Router) {
   }
 
   ngOnInit(): void {
   }
 
+  removeFromCart(id:number | undefined){
+    this.cartService.removeFromCart(id as number)
+      .subscribe(
+        data => console.log(data),
+        error => console.log(error),
+        () => this.router.navigate(['/cartview'])
+      )
+  }
 
+
+  goHome() {
+    this.router.navigate(['/'])
+  }
+
+  clearCart() {
+    this.cartService.clearCart()
+      .subscribe(
+        data => console.log(data),
+        error => console.log(error),
+        () => this.router.navigate(['/cartview'])
+      )
+  }
 }
