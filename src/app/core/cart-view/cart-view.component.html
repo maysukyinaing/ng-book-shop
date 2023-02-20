@@ -1,0 +1,28 @@
+
+
+
+
+<div class="container">
+  <table *ngIf="(carts$ | async)?.length != 0" class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Published Date</th>
+        <th>Comments</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of (carts$ | async)">
+      <td>{{item?.id}}</td>
+      <td>{{item?.title}}</td>
+      <td>{{item?.author}}</td>
+      <td>{{item?.price}}</td>
+      <td>{{item?.description}}</td>
+      <td>{{item?.publishedDate}}</td>
+      <td>{{item?.comments}}</td>
+    </tbody>
+  </table>
+</div>
