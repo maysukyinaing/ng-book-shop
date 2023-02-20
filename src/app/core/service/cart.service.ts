@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable, of, retry, tap} from "rxjs";
+import {BehaviorSubject, from, Observable, of, retry, tap} from "rxjs";
 import {Book} from "../model/book";
 
 @Injectable({
@@ -37,5 +37,21 @@ export class CartService {
       }
     })
     return isDuplicate
+  }
+
+  removeFromCart(id:number) {
+    return from(this.removeById(this.booksCart, id))
+      .pipe(
+        tap(() => this.cartSubject.next(this.booksCart)),
+        tap(() => this.cartSizeSubject.next(this.booksCart?.length))
+      )
+  }
+
+  private removeById(books:Book[], id:number) {
+    const index = books.findIndex(b => b.id == id)
+    if(index >= 0) {
+      return books.splice(index, 1)
+    }
+    return []
   }
 }
