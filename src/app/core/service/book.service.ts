@@ -33,4 +33,15 @@ export class BookService {
                   )as Observable<Book>
   }
 
+  createBook(book:Book):Observable<Book> {
+    const header = new HttpHeaders().set('Content-Type','application/json')
+    return this.http.post<Book>('http://localhost:8080/api/book/create',book,{headers:header})
+      .pipe(
+        catchError(err => {
+          return throwError(err)
+        }),
+        tap(() => this.loadAllBooks())
+      )
+  }
+
 }
