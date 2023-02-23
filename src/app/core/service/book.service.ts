@@ -16,7 +16,7 @@ export class BookService {
   private loadAllBooks() {
      const header = new HttpHeaders();
      header.set("Content-Type", "application/json")
-     this.http.get<Book[]>("http://localhost:8080/api/books",{headers:header})
+     this.http.get<Book[]>("https://ngbsws.onrender.com/api/books",{headers:header})
                .pipe(
                  shareReplay(),
                  catchError(err => {
@@ -35,7 +35,7 @@ export class BookService {
 
   createBook(book:Book):Observable<Book> {
     const header = new HttpHeaders().set('Content-Type','application/json')
-    return this.http.post<Book>('http://localhost:8080/api/book/create',book,{headers:header})
+    return this.http.post<Book>('https://ngbsws.onrender.com/api/book/create',book,{headers:header})
       .pipe(
         catchError(err => {
           return throwError(err)
@@ -47,7 +47,7 @@ export class BookService {
   updateBook(book:Book):Observable<Book> {
     const header = new HttpHeaders().set('Content-Type','application/json')
     return this.http
-      .put<Book>(`http://localhost:8080/api/book/update/${book.id}`, book, {headers:header})
+      .put<Book>(`https://ngbsws.onrender.com/api/book/update/${book.id}`, book, {headers:header})
       .pipe(
         shareReplay(),
         catchError(err => {
@@ -59,7 +59,7 @@ export class BookService {
 
   deleteBook(id:number):Observable<any> {
     return this.http
-      .delete<any>(`http://localhost:8080/api/book/delete/${id}`)
+      .delete<any>(`https://ngbsws.onrender.com/api/book/delete/${id}`)
       .pipe(
         catchError(err => {
           return throwError(err)
